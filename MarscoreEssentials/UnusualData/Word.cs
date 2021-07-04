@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using MarscoreEssentials.Exceptions;
+using MarscoreEssentials.Interfaces;
 
 namespace MarscoreEssentials.UnusualData
 {
-    public sealed class Word: ICloneable, IComparable<Word>, IComparable, IReadOnlyCollection<char>
+    public sealed class Word: ICloneable, IComparable<Word>, IComparable, IReadOnlyCollection<char>, IStorable<string>
     {
         /// <summary>
         /// Just simple regular expression to test any string to being right Word.
@@ -15,7 +16,7 @@ namespace MarscoreEssentials.UnusualData
         /// <summary>
         /// String with word.
         /// </summary>
-        public string Text { get; }
+        public string Text { get; private set; }
         
         /// <summary>
         /// Tests string and generates Word object
@@ -106,6 +107,20 @@ namespace MarscoreEssentials.UnusualData
         public char this[int index]
         {
             get => Text[index];
+        }
+
+        public string Store()
+        {
+            return ToString();
+        }
+
+        public IStorable<string> Restore(in string source)
+        {
+            var word = source.Trim();
+            if (!WordRegex.IsMatch(word))
+                throw new LexingException($"String '{word}' doesn't matches regex.");
+            Text = word;
+            return this;
         }
     }
 }
