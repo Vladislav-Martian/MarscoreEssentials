@@ -38,10 +38,10 @@ namespace MarscoreEssentials.Memory
         #endregion
 
         #region Structural
-        public TemporalFolder(in string name = null, in string basepath = null)
+        public TemporalFolder(in string name = null, in string dPath = null)
         {
             Path = System.IO.Path.Combine(
-                basepath ?? System.IO.Path.GetTempPath(),
+                dPath ?? System.IO.Path.GetTempPath(),
                 name ?? Guid.NewGuid().ToString());
             All.Add(this);
             if (!Directory.Exists(Path))

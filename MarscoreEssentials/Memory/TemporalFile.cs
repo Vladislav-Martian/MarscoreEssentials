@@ -14,6 +14,8 @@ namespace MarscoreEssentials.Memory
             get => System.IO.Path.GetDirectoryName(Path);
         }
 
+        public FileStream Stream { get; private set; } = null;
+
         private TemporalFolder TemporalFolderHook { get; }
         #endregion
         
@@ -53,6 +55,7 @@ namespace MarscoreEssentials.Memory
         
         public void Dispose()
         {
+            Close();
             All.Remove(this);
             File.Delete(Path);
             TemporalFolderHook?._files.Remove(Name);
@@ -71,7 +74,12 @@ namespace MarscoreEssentials.Memory
             int bufferSize = 4096, 
             bool useAsync = false)
         {
-            return new FileStream(Path, mode, access, share, bufferSize, useAsync);
+            return Stream ??= new FileStream(Path, mode, access, share, bufferSize, useAsync);
+        }
+
+        public void Close()
+        {
+            Stream.Close();
         }
         #endregion
 
