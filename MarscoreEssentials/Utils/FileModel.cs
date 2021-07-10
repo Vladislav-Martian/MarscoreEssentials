@@ -3,7 +3,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 
-namespace MarscoreEssentials.Utils
+namespace Marscore.Essentials.Utils
 {
     [Serializable]
     public class FileModel

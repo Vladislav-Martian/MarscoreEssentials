@@ -2,7 +2,9 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarscoreEssentials", "MarscoreEssentials\MarscoreEssentials.csproj", "{24D46353-6FBC-428E-AB26-808199BF9818}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarscoreEssentials.Test", "MarscoreEssentials.Test\MarscoreEssentials.Test.csproj", "{DEBC9E1A-17E0-4C1B-B966-05944865119D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marscore.Test", "MarscoreEssentials.Test\Marscore.Test.csproj", "{DEBC9E1A-17E0-4C1B-B966-05944865119D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marscore.Memory", "Marscore.Memory\Marscore.Memory.csproj", "{47ACD6A7-67EE-495E-ABC5-87DA22A461D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +20,9 @@ Global
 		{DEBC9E1A-17E0-4C1B-B966-05944865119D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DEBC9E1A-17E0-4C1B-B966-05944865119D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DEBC9E1A-17E0-4C1B-B966-05944865119D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47ACD6A7-67EE-495E-ABC5-87DA22A461D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47ACD6A7-67EE-495E-ABC5-87DA22A461D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47ACD6A7-67EE-495E-ABC5-87DA22A461D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47ACD6A7-67EE-495E-ABC5-87DA22A461D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

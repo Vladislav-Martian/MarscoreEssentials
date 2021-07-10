@@ -2,7 +2,7 @@
 using System.Runtime.Serialization;
 using System.Text.RegularExpressions;
 
-namespace MarscoreEssentials.Exceptions
+namespace Marscore.Essentials.Exceptions
 {
     [Serializable]
     public class LexingException : MSException

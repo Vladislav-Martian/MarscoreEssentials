@@ -1,4 +1,4 @@
-﻿namespace MarscoreEssentials.Patterns.Generative
+﻿namespace Marscore.Essentials.Patterns.Generative
 {
     /// <summary>
     /// Simple builder pattern

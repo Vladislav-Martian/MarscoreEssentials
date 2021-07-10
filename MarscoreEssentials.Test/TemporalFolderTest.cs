@@ -2,10 +2,10 @@
 using System.IO;
 using System.Text;
 using System.Threading;
-using MarscoreEssentials.Memory;
+using Marscore.Memory;
 using NUnit.Framework;
 
-namespace MarscoreEssentials.Test
+namespace Marscore.Test
 {
     [TestFixture]
     public class TemporalFolderTest

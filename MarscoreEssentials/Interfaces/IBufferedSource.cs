@@ -1,4 +1,4 @@
-﻿namespace MarscoreEssentials.Interfaces
+﻿namespace Marscore.Essentials.Interfaces
 {
     /// <summary>
     /// Works as default ISource, but saves generated object to own property, allows to get this value without generating new.

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MarscoreEssentials.Interfaces
+namespace Marscore.Essentials.Interfaces
 {
     /// <summary>
     /// For crating tree-like elements, like xml.

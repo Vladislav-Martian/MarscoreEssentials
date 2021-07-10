@@ -1,4 +1,4 @@
-﻿namespace MarscoreEssentials.Interfaces
+﻿namespace Marscore.Essentials.Interfaces
 {
     /// <summary>
     /// Generates objects via method GenerateNext().

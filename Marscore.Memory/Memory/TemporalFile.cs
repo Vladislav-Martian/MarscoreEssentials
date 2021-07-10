@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace MarscoreEssentials.Memory
+namespace Marscore.Memory
 {
     /// <summary>
     /// Represents temporal file. Can be used in using statement. On first file open saves FileStream

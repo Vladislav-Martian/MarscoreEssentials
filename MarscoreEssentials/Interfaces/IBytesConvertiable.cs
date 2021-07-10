@@ -1,4 +1,4 @@
-﻿namespace MarscoreEssentials.Interfaces
+﻿namespace Marscore.Essentials.Interfaces
 {
     /// <summary>
     /// Represents object as byte array via Bytes() method.

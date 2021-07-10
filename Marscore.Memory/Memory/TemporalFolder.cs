@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace MarscoreEssentials.Memory
+namespace Marscore.Memory
 {
     public sealed class TemporalFolder: IDisposable
     {

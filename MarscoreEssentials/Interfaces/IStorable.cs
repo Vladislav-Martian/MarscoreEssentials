@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MarscoreEssentials.Interfaces
+namespace Marscore.Essentials.Interfaces
 {
     /// <summary>
     /// Interface aalows to store any object as another object, and restore it back.

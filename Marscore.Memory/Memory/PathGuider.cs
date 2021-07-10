@@ -4,7 +4,7 @@ using System.IO;
 using System.Reflection;
 using System.Runtime.ExceptionServices;
 
-namespace MarscoreEssentials.Memory
+namespace Marscore.Memory
 {
     public class PathGuider
     {
@@ -16,7 +16,7 @@ namespace MarscoreEssentials.Memory
         /// <summary>
         /// Nested folders dictionary
         /// </summary>
-        public Dictionary<string,PathGuider> Children { get; }
+        public Dictionary<string, PathGuider> Children { get; }
         private DirectoryInfo _directoryInfo;
         /// <summary>
         /// Simply creates DictionaryInfo instance as singleton
@@ -27,6 +27,24 @@ namespace MarscoreEssentials.Memory
 
 
         #region Structural
+        /// <summary>
+        /// Deletes directory even if it contains files or other directories
+        /// </summary>
+        public static void StrongDeleteDirectory(in string path)
+        {
+            var files = Directory.EnumerateFiles(path);
+            var dirs = Directory.EnumerateDirectories(path);
+            foreach (var file in files)
+            {
+                File.SetAttributes(file, FileAttributes.Normal);
+                File.Delete(file);
+            }
+            foreach (var dir in dirs)
+            {
+                StrongDeleteDirectory(dir);
+            }
+            Directory.Delete(path);
+        }
         /// <summary>
         /// Create guider directly by string path of folder. Class does not check path validity;
         /// </summary>
@@ -50,6 +68,7 @@ namespace MarscoreEssentials.Memory
             Path = System.IO.Path.GetDirectoryName(
                 Uri.UnescapeDataString(
                     new UriBuilder(assembly.CodeBase ?? string.Empty).Path));
+            Children = new Dictionary<string, PathGuider>();
         }
         /// <summary>
         /// Navigation and automating building folder structure
@@ -89,10 +108,10 @@ namespace MarscoreEssentials.Memory
         /// <summary>
         /// Generates folder structure on hard drive.
         /// </summary>
-        public PathGuider Init()
+        public PathGuider Init(in PathGuider pivot = null)
         {
-            LocalInit();
-            foreach (var child in Children)
+            (pivot ?? this).LocalInit();
+            foreach (var child in (pivot ?? this).Children)
             {
                 child.Value.Init();
             }
@@ -149,13 +168,13 @@ namespace MarscoreEssentials.Memory
         }
         #endregion
         /// <summary>
-        /// Removes all folders inside.
+        /// Removes all folders and files inside, and folder itself.
         /// </summary>
-        public void DeleteAll()
+        public void Delete()
         {
             foreach (var guider in Children)
             {
-                Directory.Delete(guider.Value.Path);
+                StrongDeleteDirectory(guider.Value.Path);
             }
             Children.Clear();
         }

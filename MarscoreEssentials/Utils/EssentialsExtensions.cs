@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace MarscoreEssentials.Utils
+namespace Marscore.Essentials.Utils
 {
     public static class EssentialsExtensions
     {

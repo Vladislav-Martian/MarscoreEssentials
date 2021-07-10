@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace MarscoreEssentials.Exceptions
+namespace Marscore.Essentials.Exceptions
 {
     [Serializable]
     public class MSException : Exception
